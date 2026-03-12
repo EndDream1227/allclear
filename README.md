@@ -20,3 +20,5 @@
 
 注意：该mod目前为测试版，目前所有内容不代表其最终成品，目前测试版仅支持Minecraft-1.21.1-neoforge版本
 
+作者个人站：https://blog.kaze943.cn/archives/AT-0003
+
