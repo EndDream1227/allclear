@@ -46,6 +46,6 @@ Lighter, more customizable reminder text, and more modifiable parameters!
 
 Still worrying somebody stupid enough to forget close the machine and cause a server-side crash because of product overflow? Try this mod(shit)!
 
-**NOTICE**:The mod is still in test, and only support on Minecraft-1.21.1-neoforge version!
+**NOTICE**:The mod is still in test, and only supported on Minecraft-1.21.1-neoforge version!
 
 **Author's Personal Website**: https://blog.kaze943.cn/archives/AT-0003
