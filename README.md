@@ -12,6 +12,8 @@
 
 *可通过配置文件修改提示文本信息
 
+*可设置黑名单以过滤高价值物品
+
 *可通过指令/allclear now快速清理地面掉落物
 
 *可自动检测服务器tps，当tps过低时强制清除所有掉落物，支持通过配置文件设置tps阈值和强制清理时间间隔
@@ -22,3 +24,28 @@
 
 作者个人站：https://blog.kaze943.cn/archives/AT-0003
 
+### //English version introduction//
+
+A Minecraft Java Edition mod which can cleanup item entity regularly in server-side, it also available in local games
+
+Lighter, more customizable reminder text, and more modifiable parameters!
+
+### Until now the mod can do:
+
+*Clean up the item entity regularly
+
+*Custom modify the time interval between each clean up via config file
+
+*Custom modify the reminder text via config file
+
+*Custom modify the blacklist to filter the high value item
+
+*Immediate cleanup using command /allclear now
+
+*Monitor server TPS and trigger a mandatory clean-up when TPS too low, TPS threshold and mandatory clean-up interval time can be modify via config file
+
+Still worrying somebody stupid enough to forget close the machine and cause a server-side crash because of product overflow? Try this mod(shit)!
+
+**NOTICE**:The mod is still in test, and only support on Minecraft-1.21.1-neoforge version!
+
+**Author's Personal Website**: https://blog.kaze943.cn/archives/AT-0003
