@@ -17,8 +17,12 @@ import java.util.List;
 import java.util.Set;
 
 public class CleanupUtil {
+
     public static int cleanupAll(MinecraftServer server) {
-        // 每次清理都重新加载黑名单，支持热重载
+        return cleanupAll(server, AllClearConfig.CHUNK_SCAN_MODE.get());
+    }
+
+    public static int cleanupAll(MinecraftServer server, AllClearConfig.ChunkScanMode mode) {
         Set<Item> blacklistItems = new HashSet<>();
         Set<TagKey<Item>> blacklistTags = new HashSet<>();
         for (String entry : AllClearConfig.BLACKLIST.get()) {
@@ -33,14 +37,7 @@ public class CleanupUtil {
 
         int total = 0;
         for (ServerLevel level : server.getAllLevels()) {
-            // 正确的方式：使用传统 for 循环获取所有 ItemEntity
-            List<ItemEntity> items = new ArrayList<>();
-            for (Entity entity : level.getEntities().getAll()) {
-                if (entity instanceof ItemEntity itemEntity) {
-                    items.add(itemEntity);
-                }
-            }
-
+            List<ItemEntity> items = getItemsInLevel(level, mode);
             for (ItemEntity itemEntity : items) {
                 Item item = itemEntity.getItem().getItem();
                 if (blacklistItems.contains(item)) continue;
@@ -57,5 +54,30 @@ public class CleanupUtil {
             }
         }
         return total;
+    }
+
+    public static int countTotalItems(MinecraftServer server) {
+        return countTotalItems(server, AllClearConfig.CHUNK_SCAN_MODE.get());
+    }
+
+    public static int countTotalItems(MinecraftServer server, AllClearConfig.ChunkScanMode mode) {
+        int total = 0;
+        for (ServerLevel level : server.getAllLevels()) {
+            for (ItemEntity item : getItemsInLevel(level, mode)) {
+                total += item.getItem().getCount();
+            }
+        }
+        return total;
+    }
+
+    private static List<ItemEntity> getItemsInLevel(ServerLevel level, AllClearConfig.ChunkScanMode mode) {
+        List<ItemEntity> items = new ArrayList<>();
+        // ALL 和 LOADED 都处理所有已加载实体
+        for (Entity entity : level.getEntities().getAll()) {
+            if (entity instanceof ItemEntity item) {
+                items.add(item);
+            }
+        }
+        return items;
     }
 }

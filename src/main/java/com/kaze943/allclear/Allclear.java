@@ -14,11 +14,17 @@ public class Allclear {
     public static final String MODID = "allclear";
 
     public Allclear(IEventBus modEventBus, ModContainer modContainer) {
-        // 注册配置文件（通用配置）
+        // 注册配置文件
         modContainer.registerConfig(ModConfig.Type.COMMON, AllClearConfig.SPEC);
 
+        // 创建事件处理器实例
+        CleanupHandler handler = new CleanupHandler();
+
         // 注册事件监听器
-        NeoForge.EVENT_BUS.register(new CleanupHandler());
+        NeoForge.EVENT_BUS.register(handler);
         NeoForge.EVENT_BUS.register(AllClearCommand.class);
+
+        // 将 handler 注入到指令类
+        AllClearCommand.setHandler(handler);
     }
 }
