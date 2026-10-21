@@ -1,6 +1,6 @@
 # All Clear——清理一切！
 
-## 该项目已停止维护，不会更新到新版本，本mod所有项目已整合进Oxycarbide中，请前往https://github.com/EndDream1227/Oxycarbide查看
+## 该项目已停止维护，不会更新到新版本，本mod所有项目已整合进Oxycarbide中，请前往https://github.com/EndDream1227/Oxycarbide 查看
 
 用于清理掉落物的服务器管理mod，由我和d指导共同编写，适用于Minecraft Java游戏服务器，在本地游戏中同样适用
 
